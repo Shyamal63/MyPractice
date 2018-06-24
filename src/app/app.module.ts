@@ -10,6 +10,22 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { RegistrationPageModule } from '../pages/registration/registration.module';
+
+import *as firebase from 'firebase';
+import { LoginPageModule } from '../pages/login/login.module';
+import { FilterPageModule } from '../pages/filter/filter.module';
+
+var config = {
+  apiKey: "AIzaSyA7JYC3lM1QFWb_KfH5ROIbk69ByScZ0Lg",
+  authDomain: "practiceapp-31da9.firebaseapp.com",
+  databaseURL: "https://practiceapp-31da9.firebaseio.com",
+  projectId: "practiceapp-31da9",
+  storageBucket: "",
+  messagingSenderId: "665835322244"
+};
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -21,6 +37,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    LoginPageModule,
+    RegistrationPageModule,
+    FilterPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +53,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
